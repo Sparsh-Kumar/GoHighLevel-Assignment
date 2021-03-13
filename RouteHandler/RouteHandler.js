@@ -4,6 +4,7 @@ const path = require ('path');
 const RouteHandler = require ('express').Router ();
 const { createEvent } = require (path.resolve (__dirname, '..', 'controllers', 'createEvent'));
 const { docs } = require (path.resolve (__dirname, '..', 'controllers', 'docs'));
+const { dashboard } = require (path.resolve (__dirname, '..', 'controllers', 'dashboard'));
 
 // creating the api docs endpoint
 RouteHandler.get ('/docs', docs);
@@ -11,17 +12,8 @@ RouteHandler.get ('/docs', docs);
 // create event api endpoint
 RouteHandler.post ('/create_event', createEvent);
 
-
-RouteHandler.get ('/', (req, res) => {
-    try {
-        return res.status (200).render ('layouts/index.hbs');
-    } catch (error) {
-        return res.status (401).send ({
-            status: 'failure',
-            message: error.message
-        })
-    }
-})
+// creating the dashboard endpoint
+RouteHandler.get ('/dashboard', dashboard)
 
 module.exports = {
     RouteHandler
