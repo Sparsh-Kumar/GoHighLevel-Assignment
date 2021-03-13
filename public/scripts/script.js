@@ -46,7 +46,7 @@ $(document).ready(function() {
         if (!isNaN(parseInt(myDay, 10))){
           var myMonth = moment(timeframe).format("M");
           var myYear = moment(timeframe).format("YY");
-          $("input").val(myMonth + "/" + myDay + "/" + myYear);
+          $("input").val(myMonth + "/" + myDay + "/" + myYear); // this is the  code which is displaying the date
           styleDateValidation();
           styleSelectedDay();
         }
