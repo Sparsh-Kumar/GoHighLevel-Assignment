@@ -3,11 +3,35 @@
 <!doctype html>
     <html>
         <head>
-            <title>Page Title</title>
+            <title>Appointment</title>
             <meta name="viewport" content="width=device-width,initial-scale=1.0">
+            <link rel="stylesheet" href="/css/style.css">
+            <script type="text/javascript" src="/scripts/moment.js"></script>
+            <script type="text/javascript" src="/scripts/jQuery.js"></script>
+            <script type="text/javascript" src="/scripts/script.js"></script>
         </head>
-
+        
         <body>
-            <h3>Hello HBS works</h3>
+            <h1>Simple Calendar Widget</h1>
+            <div class = "wrapper">
+                <label for = "date">Date:</label>
+                <input id = "date"/>
+                <span class = "calendar-icon"></span>
+                <div class = "calendar">
+                    <span class = "month-prev"></span>
+                    <h2 id = "month" class = "month"></h2>
+                    <span class = "month-next"></span>
+                    <ol class = "weekdays">
+                        <li>Sun</li>
+                        <li>Mon</li>
+                        <li>Tue</li>
+                        <li>Wed</li>
+                        <li>Thu</li>
+                        <li>Fri</li>
+                        <li>Sat</li>
+                    </ol>
+                <div id = "days" class = "days"></div>
+                </div>
+            </div>
         </body>
     </html>

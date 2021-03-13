@@ -22,7 +22,7 @@ mongoose.connect (process.env.MONGO_DATABASE_URL, { useUnifiedTopology: true }).
 
 
 const app = express ();
-app.use (cors ());
+//app.use (cors ());
 app.use (helmet ());
 app.use (xss ());
 app.use (bodyParser.json ({ limit: '10kb' }));

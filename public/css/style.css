@@ -1,0 +1,110 @@
+@import url(https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
+ol, li { margin: 0; padding: 0; list-style: none; }
+.wrapper {  
+  width: 330px; 
+  margin: 10px 40px; 
+}
+
+h1 { 
+  font-size: 1.5em; 
+  margin-left: 20px;
+}
+
+label { margin: auto; }
+input { margin: 0 0 10px 10px;}
+.calendar {
+  display: none;
+  margin-left: 5px;
+  width: 255px;
+  color: #525252;
+}
+
+.days li:hover, .month-prev:hover, .month-next:hover, .calendar-icon { cursor: pointer; }
+.month, .month-prev, .month-next, .calendar-icon { font-size: 1.125em; }
+.month { 
+  width: 185px;
+  display: inline-block;
+  margin: 0;
+  text-align: center; 
+}
+
+.month-prev, .month-next, .calendar-icon { 
+  font-family: FontAwesome;
+  padding: 3px;
+  display: inline-block;
+}
+
+.calendar-icon:before { 
+  content: "\f073"; 
+  margin-left: 5px;
+}
+
+.month-prev:before { 
+  content: "\f0a8"; 
+  margin-left: 5px;
+}
+
+.month-next:before { 
+  content: "\f0a9"; 
+  margin-right: 5px;
+}
+
+.weekdays li, .days li { 
+  font-size: 13px;
+  text-align: center;
+}
+
+.weekdays li { 
+  width: 20px;
+  padding: 0 6px 5px 3px;
+  margin-left: 2px;
+  display: inline-block; 
+}
+
+.days li {
+  width: 20px;
+  height: 20px;
+  float: left;
+  padding: 5px 5px 5px 10px;
+  
+  font-size: 13px;
+  font-family: Tahoma, Verdana, sans-serif;
+  font-weight: bold;
+}
+
+.days li:hover { 
+  color: royalblue;
+  background: whitesmoke;
+}
+
+.today { 
+  color: indianred; 
+  background: whitesmoke;
+}
+
+/*** draw borders ***/
+
+.days li {
+  border-bottom: 1px solid darkgrey;
+  border-right: 1px solid darkgrey;
+}
+
+.days li:nth-child(-n+7) { border-top: 1px solid darkgrey; }
+.days li:nth-child(7n+1) { border-left: 1px solid darkgrey; }
+
+/*** valid/invalid date field ***/
+.valid-date {
+  outline: none;
+  border: 2px solid green;
+}
+
+.invalid-date {
+  outline: none;
+  border: 2px solid red;
+}
+
+.selected-day { 
+  background: whitesmoke; 
+  color: green;
+}
