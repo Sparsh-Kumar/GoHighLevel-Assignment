@@ -20,14 +20,12 @@ const getevents = (req, res) => {
         endDate = parseInt (endDate);
 
         Event.find ({
-            
             datetime: {
-                $and: [
-                    {$gte: startDate},
-                    {$lte: endDate}
-                ]
+                $gte: startDate
+            },
+            datetime: {
+                $lte: endDate
             }
-            
         }).then ((events) => {
 
             return res.status (200).send ({
