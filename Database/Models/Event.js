@@ -6,7 +6,7 @@ const uniqueValidator = require ('mongoose-unique-validator');
 
 const EventSchema = new mongoose.Schema ({
 
-    datetime: { // in milliseconds
+    start: { // in milliseconds
         type: Number,
         required: true
     },
@@ -21,6 +21,11 @@ const EventSchema = new mongoose.Schema ({
         trim: true,
         required: false,
         default: ''
+    },
+
+    end: {
+        type: Number,
+        required: true
     }
 
 }, { timestamps: true });
