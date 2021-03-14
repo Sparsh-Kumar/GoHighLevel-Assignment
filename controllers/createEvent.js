@@ -14,7 +14,11 @@ const createEvent = (req, res) => {
         if (!datetime || !duration) {
             throw new Error ('datetime and duration are necessary');
         }
-        // converting minutes to milliseconds
+
+        datetime = parseInt (datetime);
+        duration = parseInt (duration);
+        
+        // converting minutes to millisecond
         duration = duration * 60000;
         Event.create ({
             datetime,

@@ -14,10 +14,10 @@ RouteHandler.get ('/docs', docs);
 RouteHandler.post ('/create_event', createEvent);
 
 // creating the dashboard endpoint
-RouteHandler.get ('/dashboard', dashboard)
+RouteHandler.get ('/dashboard', dashboard);
 
 // creating the endpoint for getting the events b/w start date and end date
-RouteHandler.post ('/get_events', getevents);
+RouteHandler.get ('/get_events', getevents);
 
 module.exports = {
     RouteHandler

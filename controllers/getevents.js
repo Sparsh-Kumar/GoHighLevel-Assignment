@@ -8,22 +8,25 @@ const getevents = (req, res) => {
 
     try {
 
-        let { startDate, endDate } = _.pick (req.body, ['startDate', 'endDate']);
+        let startDate = req.query.startDate;
+        let endDate = req.query.endDate;
+
         // TODO - We can validate if the values entered startDate and endDate must be of Number type
         // startDate and endDate should be in milliseconds
-
-        if (!startDate || !endDate) {
-            throw new Error ('please enter both the start date and end date');
+        
+        if (!startDate) {
+            throw new Error ('please enter the start date');
         }
 
         startDate = parseInt(startDate);
+        if (!endDate) {
+            endDate = parseInt (startDate) + 86399999;
+        }
         endDate = parseInt (endDate);
 
         Event.find ({
             datetime: {
-                $gte: startDate
-            },
-            datetime: {
+                $gte: startDate,
                 $lte: endDate
             }
         }).then ((events) => {
