@@ -45,8 +45,26 @@ $(document).ready(function() {
         /* make sure user clicked on an actual day not one of the offset boxes */
         if (!isNaN(parseInt(myDay, 10))){
           var myMonth = moment(timeframe).format("M");
-          var myYear = moment(timeframe).format("YY");
+          var myYear = moment(timeframe).format("YYYY");
           $("input").val(myMonth + "/" + myDay + "/" + myYear); // this is the  code which is displaying the date
+          
+          // make a date object with myDay, myYear and myMonth and send it via post request
+          myYear = parseInt (myYear);
+          myMonth = parseInt (myMonth) - 1; // I think the month starts from 0 to 11, for January to December
+          myDay = parseInt (myDay);
+
+          // making the date Object
+          let datetime = new Date (myYear, myMonth, myDay).getTime ();
+
+          // making the GET request
+          $.get (`get_events?startDate=${datetime}`, function (data, textStatus, jqXhr) {
+
+            // do something with the data or display the data
+            console.log (data);
+            console.log (textStatus);
+            console.log (jqXhr);
+          });
+
           styleDateValidation();
           styleSelectedDay();
         }
