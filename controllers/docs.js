@@ -3,7 +3,7 @@
 const docs = (req, res) => {
     try {
 
-        return res.status (200).redirect ('/') // TODO - PUBLISH THE API DOCS AND GIVE THE URL HERE TO REDIRECT USERS TO SEE DOCS
+        return res.status (200).redirect ('https://documenter.getpostman.com/view/11784786/Tz5qawy9');
 
     } catch (error) {
 
