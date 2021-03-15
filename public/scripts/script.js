@@ -57,7 +57,7 @@ $(document).ready(function() {
           let datetime = new Date (myYear, myMonth, myDay).getTime ();
 
           // making the GET request
-          $.get (`get_events?startDate=${datetime}`, function (data, textStatus, jqXhr) {
+          $.get (`find_slots?startDate=${datetime}`, function (data, textStatus, jqXhr) {
 
             // do something with the data or display the data
             console.log (data);

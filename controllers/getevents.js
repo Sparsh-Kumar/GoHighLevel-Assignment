@@ -24,9 +24,13 @@ const getevents = (req, res) => {
         }
         endDate = parseInt (endDate);
 
+        // overwrite from here
+
         Event.find ({
-            datetime: {
-                $gte: startDate,
+            start: {
+                $gte: startDate
+            },
+            end: {
                 $lte: endDate
             }
         }).then ((events) => {
