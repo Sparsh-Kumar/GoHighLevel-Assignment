@@ -7,6 +7,7 @@ const { docs } = require (path.resolve (__dirname, '..', 'controllers', 'docs'))
 const { dashboard } = require (path.resolve (__dirname, '..', 'controllers', 'dashboard'));
 const { getevents } = require (path.resolve (__dirname, '..', 'controllers', 'getevents'));
 const { findtimeslots } = require (path.resolve (__dirname, '..', 'controllers', 'findtimeslots'));
+const { eventMiddleware } = require (path.resolve (__dirname, '..', 'middlewares', 'eventMiddleware'));
 
 // creating the api docs endpoint
 RouteHandler.get ('/docs', docs);
@@ -18,10 +19,10 @@ RouteHandler.post ('/create_event', createEvent);
 RouteHandler.get ('/dashboard', dashboard);
 
 // creating the endpoint for getting the events b/w start date and end date
-RouteHandler.get ('/get_events', getevents);
+RouteHandler.get ('/get_events', eventMiddleware, getevents);
 
 // creating the endpoint got finding the timeslots of a given date
-RouteHandler.get ('/find_slots', findtimeslots);
+RouteHandler.get ('/find_slots', eventMiddleware, findtimeslots);
 
 module.exports = {
     RouteHandler

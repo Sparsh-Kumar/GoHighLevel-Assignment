@@ -60,9 +60,11 @@ $(document).ready(function() {
           $.get (`find_slots?startDate=${datetime}`, function (data, textStatus, jqXhr) {
 
             // do something with the data or display the data
-            console.log (data);
-            console.log (textStatus);
-            console.log (jqXhr);
+            let html = "";
+            for (let slot of data.slots) {
+              html = html + new Date (parseInt (slot.start)).toString() + "<br>";
+            }
+            $("#availableslots").html (html);
           });
 
           styleDateValidation();
