@@ -39,7 +39,10 @@ const findtimeslots = (req, res) => {
             if (! events || !events.length) {
                 // print from START_HOURS TO END_HOURS WITH DEFAULT DURATION OF 30 MINS.
                 for (let index = should_start_time;index < should_end_time;index = index + 1800000) {
-                    slots.push (index);
+                    slots.push ({
+                        start_time: index,
+                        end_time: index + 1800000
+                    });
                 }
 
             } else {
