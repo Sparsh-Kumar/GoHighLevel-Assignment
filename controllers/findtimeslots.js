@@ -16,9 +16,7 @@ const findtimeslots = (req, res) => {
             });
         }
 
-        if (!req.events || !req.events.length) {
-            filtered_slots = [...slots];
-        } else {
+        if (req.events && req.events.length) {
             for (let event of req.events) {
                 let event_starting_time = event.start;
                 let event_ending_time = event.end;
